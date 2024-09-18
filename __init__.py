@@ -5,7 +5,7 @@
 @description: Custom node that previews a single image and pause the workflow to allow the user to create a mask
 """
 
-from image_masker import ImageMasker
+from .image_masker import ImageMasker
 
 NODE_CLASS_MAPPINGS = {  "Image Masker" : ImageMasker }
 WEB_DIRECTORY = "./js"

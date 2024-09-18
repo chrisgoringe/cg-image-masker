@@ -21,9 +21,9 @@ function display_preview_images(node, urls) {
 }
 
 function open_mask_editor(node) {
-    ComfyApp.copyToClipspace(node)
-    ComfyApp.clipspace_return_node = node
-    ComfyApp.open_maskeditor()
+    app.copyToClipspace(node)
+    app.clipspace_return_node = node
+    app.open_maskeditor()
 }
 
 app.registerExtension({
@@ -37,7 +37,7 @@ app.registerExtension({
         }
 
         function earlyImageHandler(event) {
-            node = app.graph._nodes_by_id[event.detail.id];
+            const node = app.graph._nodes_by_id[event.detail.id];
             display_preview_images(node, event.detail.urls);
             node.imageIndex = 0;
             open_mask_editor(node);

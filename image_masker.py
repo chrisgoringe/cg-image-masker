@@ -21,9 +21,18 @@ class ImageMasker(PreviewImage, LoadImage):
     RETURN_TYPES = ("IMAGE", "MASK")
     FUNCTION = "func"
     OUTPUT_NODE = False
+    CATEGORY = "image"
 
     CANCEL = False
     mask_ready = {}
+
+    @classmethod
+    def IS_CHANGED(s, **kwargs):
+        return float("NaN")
+    
+    @classmethod
+    def VALIDATE_INPUTS(s, image):
+        return True
     
     @classmethod
     def receive_mask(cls, unique_id, message, data):
